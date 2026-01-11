@@ -2,7 +2,7 @@ import './App.css'
 
 function ProductCategoryRow({ category }) {
   return (
-    <tr>
+    <tr className='category-row'>
       <th colSpan="2">
         {category}
       </th>
@@ -45,7 +45,7 @@ function ProductTable({ products }) {
   });
 
   return (
-    <table>
+    <table className='table'>
       <thead>
         <tr>
           <th>Name</th>
@@ -61,7 +61,7 @@ function SearchBar() {
   return (
     <form className='search-bar'>
       <input className='search-bar__input' type="text" placeholder="Search..." />
-      <label className='seasrch-bar__label'>
+      <label>
           <input type="checkbox" />
           {' '}
           Only show products in stock
@@ -72,7 +72,7 @@ function SearchBar() {
 
 function FilterableProductTable({ products }) {
   return (
-    <div>
+    <div className='product-table-wrapper'>
       <SearchBar />
       <ProductTable products={products} />
     </div>

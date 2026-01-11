@@ -1,5 +1,3 @@
-#root {}
-
 .search-bar {
   display: inline-flex;
   flex-direction: column;
@@ -12,6 +10,18 @@
   padding: 5px;
 }
 
-.search-bar__label {
-  font-size: 14px;
+.product-table-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.category-row th {
+  padding-top: 12px;
+  padding-bottom: 6px;
 }
