@@ -68,18 +68,25 @@ function ProductTable({ products, filterText, inStockOnly }) {
   );
 }
 
-function SearchBar({ filterText, inStockOnly }) {
+function SearchBar({ 
+  filterText, 
+  inStockOnly, 
+  onFilterTextChange, 
+  onInStockOnlyChange 
+}) {
   return (
     <form className='search-bar'>
       <input 
         className='search-bar__input'
         type="text" 
         value={filterText} 
-        placeholder="Search..." />
+        placeholder="Search..."
+        onChange={(e) => onFilterTextChange(e.target.value)} />
       <label>
           <input 
             type="checkbox" 
-            checked={inStockOnly} />
+            checked={inStockOnly} 
+            onChange={(e) => onInStockOnlyChange(e.target.checked)}/>
           {' '}
           Only show products in stock
         </label>
@@ -88,13 +95,15 @@ function SearchBar({ filterText, inStockOnly }) {
 }
 
 function FilterableProductTable({ products }) {
-  const [filterText, setFilterText] = useState('fruit');
+  const [filterText, setFilterText] = useState('');
   const [inStockOnly, setInStockOnly] = useState(false);
   return (
     <div className='product-table-wrapper'>
       <SearchBar 
         filterText={filterText}
-        inStockOnly={inStockOnly} />
+        inStockOnly={inStockOnly}
+        onFilterTextChange={setFilterText}
+        onInStockOnlyChange={setInStockOnly} />
       <ProductTable 
         products={products} 
         filterText={filterText}
